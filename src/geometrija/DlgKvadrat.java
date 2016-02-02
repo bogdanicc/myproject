@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class DlgKvadrat extends JDialog {
@@ -30,7 +31,7 @@ public class DlgKvadrat extends JDialog {
 	public static void main(String[] args) {
 		try {
 			DlgKvadrat dialog = new DlgKvadrat();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -101,6 +102,7 @@ public class DlgKvadrat extends JDialog {
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
+
 					}
 				});
 				cancelButton.setActionCommand("Cancel");
@@ -142,6 +144,9 @@ public class DlgKvadrat extends JDialog {
 			contentPanel.add(btnIzaberi2);
 		}
 	}
+	
+
+	
 
 	public int getStranica() {
 		return stranica;

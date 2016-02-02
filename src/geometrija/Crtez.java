@@ -55,10 +55,11 @@ public class Crtez extends JPanel {
 					Tacka t1= new Tacka(e.getX(), e.getY());
 					DlgKrug dlgk= new DlgKrug();
 					dlgk.setVisible(true);
+					if(dlgk.getPoluprecnik()>0){
 					Krug k1= new Krug(t1, dlgk.getPoluprecnik(), dlgk.getOkvir());
 					k1.setBojaUnutrasnjosti(dlgk.getUnutrasnjost());
-;					lista.add(k1);
-					
+					lista.add(k1);
+					}					
 					break;
 				}
 				case 4:
@@ -67,20 +68,25 @@ public class Crtez extends JPanel {
 					Y=e.getY();
 					DlgKvadrat dlgkv= new DlgKvadrat();
 					dlgkv.setVisible(true);
+					if(dlgkv.getStranica()>0){
 					Kvadrat kv1= new Kvadrat(new Tacka(X, Y), dlgkv.getStranica(),dlgkv.getOkvir());
 					kv1.setBojaUnutrasnjosti(dlgkv.getUnutrasnjost());
 					lista.add(kv1);
+					dlgkv.setVisible(false);
 					break;
+					}
 				}
 				case 5:
 				{
 					Tacka t1= new Tacka(e.getX(), e.getY());
 					DlgPravougaonik dlgp = new DlgPravougaonik();
 					dlgp.setVisible(true);
+					if(dlgp.getStranica()>0 && dlgp.getVisina()>0){
 					Pravougaonik p1 = new Pravougaonik(t1, dlgp.getVisina(), dlgp.getStranica(),dlgp.getOkvir());
 					p1.setBojaUnutrasnjosti(dlgp.getUnutrasnjost());
 					lista.add(p1);
 					break;
+					}
 				}
 				case 6:
 				{
@@ -95,31 +101,39 @@ public class Crtez extends JPanel {
 					if(listaSelKon.get(0) instanceof Krug){
 						DlgKrug dlgk = new DlgKrug();
 						dlgk.setVisible(true);
+						if(dlgk.getPoluprecnik()>0){
 						((Krug)listaSelKon.get(0)).setBojaUnutrasnjosti(dlgk.getUnutrasnjost());
 						((Krug)listaSelKon.get(0)).setRadius(dlgk.getPoluprecnik());
 						((Krug)listaSelKon.get(0)).setBoja(dlgk.getOkvir());
+						}
 					}
 					else if(listaSelKon.get(0) instanceof Pravougaonik){
 						DlgPravougaonik dlgp = new DlgPravougaonik();
 						dlgp.setVisible(true);
+						if(dlgp.getStranica()>0 && dlgp.getVisina()>0){
 						((Pravougaonik)listaSelKon.get(0)).setBojaUnutrasnjosti(dlgp.getUnutrasnjost());
 						((Pravougaonik)listaSelKon.get(0)).setBoja(dlgp.getOkvir());
 						((Pravougaonik)listaSelKon.get(0)).setStranica(dlgp.getVisina());
 						((Pravougaonik)listaSelKon.get(0)).setSirina(dlgp.getStranica());
+						}
 					}
 					else if(listaSelKon.get(0) instanceof Kvadrat){
 						DlgKvadrat dlgkv = new DlgKvadrat();
 						dlgkv.setVisible(true);
+						if(dlgkv.getStranica()>0){
 						((Kvadrat)listaSelKon.get(0)).setBojaUnutrasnjosti(dlgkv.getUnutrasnjost());
 						((Kvadrat)listaSelKon.get(0)).setBoja(dlgkv.getOkvir());
 						((Kvadrat)listaSelKon.get(0)).setStranica(dlgkv.getStranica());
+						}
 					}
 					else if(listaSelKon.get(0) instanceof Linija){
 						DlgLinija dlgl = new DlgLinija();
 						dlgl.setVisible(true);
+						if(new Linija(new Tacka(dlgl.getXTpocetno(), dlgl.getYTpocetno()), new Tacka(dlgl.getXTkrajnje(), dlgl.getYTkrajnje())).duzina()>0){
 						((Linija)listaSelKon.get(0)).setBoja(dlgl.getBoja());
 						((Linija)listaSelKon.get(0)).settPocetna(new Tacka(dlgl.getXTpocetno(), dlgl.getYTpocetno()));
-						((Linija)listaSelKon.get(0)).settKrajnja(new Tacka(dlgl.getXTkrajnje(), dlgl.getYTkrajnje()));	
+						((Linija)listaSelKon.get(0)).settKrajnja(new Tacka(dlgl.getXTkrajnje(), dlgl.getYTkrajnje()));
+						}
 					}
 					else if(listaSelKon.get(0) instanceof Tacka){
 						((Tacka)listaSelKon.get(0)).setBoja(JColorChooser.showDialog(null, "Izaberite boju tacke", Color.white));

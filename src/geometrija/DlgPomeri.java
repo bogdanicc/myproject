@@ -79,15 +79,7 @@ public class DlgPomeri extends JDialog {
 						try {
 							pomeriX=Integer.parseInt(textPomeriPoX.getText());
 							pomeriY=Integer.parseInt(textPomeriPoY.getText());
-							if(pomeriX>=0 && pomeriY>=0){
-								dispose();
-							}
-							else{
-								JOptionPane.showMessageDialog(null, "Brojevi moraju biti pozitivni!", "Error", JOptionPane.ERROR_MESSAGE);
-								textPomeriPoX.setText("");
-								textPomeriPoY.setText("");
-								textPomeriPoX.requestFocus();
-							}
+							dispose();
 						} catch (NumberFormatException e1) {
 							// TODO Auto-generated catch block
 							JOptionPane.showMessageDialog(null, "Niste uneli brojeve!", "Error", JOptionPane.ERROR_MESSAGE);
