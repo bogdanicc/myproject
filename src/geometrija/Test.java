@@ -1,5 +1,6 @@
 package geometrija;
 
+import java.awt.Color;
 import java.util.Arrays;
 
 public class Test {
@@ -276,9 +277,9 @@ public class Test {
 			System.out.println(nizTacaka[i]);
 		}
 		
-		Linija l6 = new Linija(t6, t5, "ZUTA");
+		Linija l6 = new Linija(t6, t5, Color.yellow);
 		
-		Linija l7 = new Linija(new Tacka(50, 100), t5, "CRVENA");
+		Linija l7 = new Linija(new Tacka(50, 100), t5, Color.red);
 		
 		Linija l8 = new Linija(new Tacka(75, 85), new Tacka(t5.getX(), t6.getY()), t6.getBoja());
 		

@@ -1,9 +1,11 @@
 package geometrija;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -20,6 +22,7 @@ public class DlgKvadrat extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textStranica;
 	private int stranica;
+	private Color okvir,unutrasnjost;
 
 	/**
 	 * Launch the application.
@@ -38,6 +41,8 @@ public class DlgKvadrat extends JDialog {
 	 * Create the dialog.
 	 */
 	public DlgKvadrat() {
+		setModal(true);
+		setTitle("Crtanje kvadrata");
 		setBounds(100, 100, 253, 169);
 		getContentPane().setLayout(null);
 		contentPanel.setBounds(0, 0, 238, 148);
@@ -47,12 +52,12 @@ public class DlgKvadrat extends JDialog {
 		{
 			JLabel lblNewLabel = new JLabel("Stranica:");
 			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lblNewLabel.setBounds(10, 38, 71, 14);
+			lblNewLabel.setBounds(10, 11, 71, 14);
 			contentPanel.add(lblNewLabel);
 		}
 		{
 			textStranica = new JTextField();
-			textStranica.setBounds(77, 36, 86, 20);
+			textStranica.setBounds(142, 9, 86, 20);
 			contentPanel.add(textStranica);
 			textStranica.setColumns(10);
 		}
@@ -102,6 +107,40 @@ public class DlgKvadrat extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+		{
+			JLabel lblBojaOkvira = new JLabel("Boja okvira:");
+			lblBojaOkvira.setFont(new Font("Tahoma", Font.BOLD, 12));
+			lblBojaOkvira.setBounds(10, 43, 93, 14);
+			contentPanel.add(lblBojaOkvira);
+		}
+		{
+			JLabel lblBojaUnutrasnjosti = new JLabel("Boja unutrasnjosti:");
+			lblBojaUnutrasnjosti.setFont(new Font("Tahoma", Font.BOLD, 12));
+			lblBojaUnutrasnjosti.setBounds(10, 67, 119, 14);
+			contentPanel.add(lblBojaUnutrasnjosti);
+		}
+		{
+			JButton btnIzaberi1 = new JButton("Izaberi");
+			btnIzaberi1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					 okvir = JColorChooser.showDialog(null,
+				               "Izaberite boju okvira", Color.white);
+				}
+			});
+			btnIzaberi1.setBounds(142, 34, 89, 23);
+			contentPanel.add(btnIzaberi1);
+		}
+		{
+			JButton btnIzaberi2 = new JButton("Izaberi");
+			btnIzaberi2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					unutrasnjost = JColorChooser.showDialog(null,
+				               "Izaberite boju unutrasnjosti", Color.white);
+				}
+			});
+			btnIzaberi2.setBounds(142, 58, 89, 23);
+			contentPanel.add(btnIzaberi2);
+		}
 	}
 
 	public int getStranica() {
@@ -110,6 +149,22 @@ public class DlgKvadrat extends JDialog {
 
 	public void setStranica(int stranica) {
 		this.stranica = stranica;
+	}
+
+	public Color getOkvir() {
+		return okvir;
+	}
+
+	public void setOkvir(Color okvir) {
+		this.okvir = okvir;
+	}
+
+	public Color getUnutrasnjost() {
+		return unutrasnjost;
+	}
+
+	public void setUnutrasnjost(Color unutrasnjost) {
+		this.unutrasnjost = unutrasnjost;
 	}
 
 }

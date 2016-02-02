@@ -17,7 +17,7 @@ public class Tacka extends Oblik implements Comparable{
 		this.y = y;
 	}
 
-	public Tacka(int x, int y, String boja){
+	public Tacka(int x, int y, Color boja){
 		super(boja);
 		this.x = x;
 		this.y = y;
@@ -37,9 +37,15 @@ public class Tacka extends Oblik implements Comparable{
 		
 	}
 
+	public boolean sadrzi(int x,int y){
+		if(x>=this.x-6 && x<=this.x+6 && y>=this.y-6 && y<=this.y+6)
+			return true;
+		else
+			return false;
+	}
 
 	public void crtajSe(Graphics g) {
-		g.setColor(pronadjiBoju(getBoja()));
+		g.setColor(getBoja());
 		g.drawLine(x-2, y, x+2, y); 
 		g.drawLine(x, y-2, x, y+2);
 		

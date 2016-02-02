@@ -16,13 +16,13 @@ public class Pravougaonik extends Kvadrat {
 		this.sirina = sirina;
 	}
 
-	public Pravougaonik(Tacka goreLevo, int visina, int sirina,String boja){
+	public Pravougaonik(Tacka goreLevo, int visina, int sirina,Color boja){
 		this(goreLevo,visina,sirina);
 		setBoja(boja);
 	}
 	
 	public void popuni(Graphics g) {
-		g.setColor(pronadjiBoju(getBojaUnutrasnjosti()));
+		g.setColor(getBojaUnutrasnjosti());
 		g.fillRect(goreLevo.getX()+1, goreLevo.getY()+1, stranica-1, sirina-1);
 
 
@@ -51,7 +51,7 @@ public class Pravougaonik extends Kvadrat {
 	
 	
 	public void crtajSe(Graphics g) {
-		g.setColor(pronadjiBoju(getBoja()));
+		g.setColor(getBoja());
 		g.drawRect(goreLevo.getX(), goreLevo.getY(), stranica, sirina);
 		if(isSelektovan())
 			selektovan(g);

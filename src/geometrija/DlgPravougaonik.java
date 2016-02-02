@@ -1,9 +1,11 @@
 package geometrija;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -21,6 +23,7 @@ public class DlgPravougaonik extends JDialog {
 	private JTextField textStranica;
 	private JTextField textVisina;
 	private int stranica,visina;
+	private Color okvir,unutrasnjost;
 
 	/**
 	 * Launch the application.
@@ -39,39 +42,13 @@ public class DlgPravougaonik extends JDialog {
 	 * Create the dialog.
 	 */
 	public DlgPravougaonik() {
-		setBounds(100, 100, 270, 177);
+		setModal(true);
+		setTitle("Crtanje pravougaonika");
+		setBounds(100, 100, 270, 205);
 		getContentPane().setLayout(null);
-		contentPanel.setBounds(0, 0, 254, 106);
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		getContentPane().add(contentPanel);
-		contentPanel.setLayout(null);
-		{
-			JLabel lblNewLabel = new JLabel("Stranica:");
-			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lblNewLabel.setBounds(10, 26, 72, 14);
-			contentPanel.add(lblNewLabel);
-		}
-		{
-			JLabel lblVisina = new JLabel("Visina:");
-			lblVisina.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lblVisina.setBounds(10, 51, 57, 20);
-			contentPanel.add(lblVisina);
-		}
-		{
-			textStranica = new JTextField();
-			textStranica.setBounds(77, 24, 86, 20);
-			contentPanel.add(textStranica);
-			textStranica.setColumns(10);
-		}
-		{
-			textVisina = new JTextField();
-			textVisina.setBounds(77, 51, 86, 20);
-			contentPanel.add(textVisina);
-			textVisina.setColumns(10);
-		}
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(0, 106, 254, 33);
+			buttonPane.setBounds(0, 134, 254, 33);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane);
 			{
@@ -120,6 +97,68 @@ public class DlgPravougaonik extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+		{
+			JLabel lblBojaUnutrasnjosti = new JLabel("Boja unutrasnjosti:");
+			lblBojaUnutrasnjosti.setFont(new Font("Tahoma", Font.BOLD, 12));
+			lblBojaUnutrasnjosti.setBounds(10, 109, 126, 14);
+			getContentPane().add(lblBojaUnutrasnjosti);
+		}
+		{
+			JButton btnIzaberi2 = new JButton("Izaberi");
+			btnIzaberi2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					unutrasnjost = JColorChooser.showDialog(null,
+				               "Izaberite boju unutrasnjosti", Color.white);
+				}
+			});
+			btnIzaberi2.setBounds(146, 100, 89, 23);
+			getContentPane().add(btnIzaberi2);
+		}
+		contentPanel.setBounds(0, 0, 254, 167);
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel);
+		contentPanel.setLayout(null);
+		{
+			JLabel lblNewLabel = new JLabel("Stranica:");
+			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+			lblNewLabel.setBounds(10, 11, 72, 14);
+			contentPanel.add(lblNewLabel);
+		}
+		{
+			JLabel lblVisina = new JLabel("Visina:");
+			lblVisina.setFont(new Font("Tahoma", Font.BOLD, 12));
+			lblVisina.setBounds(10, 39, 57, 20);
+			contentPanel.add(lblVisina);
+		}
+		{
+			textStranica = new JTextField();
+			textStranica.setBounds(147, 9, 86, 20);
+			contentPanel.add(textStranica);
+			textStranica.setColumns(10);
+		}
+		{
+			textVisina = new JTextField();
+			textVisina.setBounds(147, 40, 86, 20);
+			contentPanel.add(textVisina);
+			textVisina.setColumns(10);
+		}
+		{
+			JLabel lblBojaOkvira = new JLabel("Boja okvira:");
+			lblBojaOkvira.setFont(new Font("Tahoma", Font.BOLD, 12));
+			lblBojaOkvira.setBounds(10, 81, 72, 14);
+			contentPanel.add(lblBojaOkvira);
+		}
+		{
+			JButton btnIzaberi1 = new JButton("Izaberi");
+			btnIzaberi1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					 okvir = JColorChooser.showDialog(null,
+				               "Izaberite boju okvira", Color.white);
+				}
+			});
+			btnIzaberi1.setBounds(147, 71, 89, 23);
+			contentPanel.add(btnIzaberi1);
+		}
 	}
 
 	public int getStranica() {
@@ -136,6 +175,22 @@ public class DlgPravougaonik extends JDialog {
 
 	public void setVisina(int visina) {
 		this.visina = visina;
+	}
+
+	public Color getOkvir() {
+		return okvir;
+	}
+
+	public void setOkvir(Color okvir) {
+		this.okvir = okvir;
+	}
+
+	public Color getUnutrasnjost() {
+		return unutrasnjost;
+	}
+
+	public void setUnutrasnjost(Color unutrasnjost) {
+		this.unutrasnjost = unutrasnjost;
 	}
 
 }

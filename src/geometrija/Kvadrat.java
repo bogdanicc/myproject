@@ -17,8 +17,8 @@ public class Kvadrat extends PovrsinskiOblik {
 		this.stranica = stranica;
 	}
 
-	public Kvadrat(Tacka goreLevo, int stranica, String boja){
-		super(boja);
+	public Kvadrat(Tacka goreLevo, int stranica, Color boja){
+		setBoja(boja);
 		this.goreLevo = goreLevo;
 		this.stranica = stranica;
 
@@ -36,7 +36,7 @@ public class Kvadrat extends PovrsinskiOblik {
 
 
 	public void popuni(Graphics g) {
-		g.setColor(pronadjiBoju(getBojaUnutrasnjosti()));
+		g.setColor(getBojaUnutrasnjosti());
 		g.fillRect(goreLevo.getX()+1, goreLevo.getY()+1, stranica-1, stranica-1);
 
 
@@ -53,7 +53,7 @@ public class Kvadrat extends PovrsinskiOblik {
 	}
 
 	public void crtajSe(Graphics g) {
-		g.setColor(pronadjiBoju(getBoja()));
+		g.setColor(getBoja());
 		g.drawRect(goreLevo.getX(), goreLevo.getY(), stranica, stranica);
 		if(isSelektovan())
 			selektovan(g);

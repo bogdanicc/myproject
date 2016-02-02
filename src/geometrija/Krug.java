@@ -18,7 +18,7 @@ public class Krug extends PovrsinskiOblik{
 
 	}
 
-	public Krug(Tacka centar, int radius, String boja){
+	public Krug(Tacka centar, int radius, Color boja){
 		setBoja(boja);
 		this.centar = centar;
 		this.radius = radius;
@@ -37,7 +37,7 @@ public class Krug extends PovrsinskiOblik{
 
 
 	public void popuni(Graphics g) {
-		g.setColor(pronadjiBoju(getBojaUnutrasnjosti()));
+		g.setColor(getBojaUnutrasnjosti());
 		g.fillOval(centar.getX()-radius+1, centar.getY()-radius+1,
 				2*radius-2, 2*radius-2);
 
@@ -54,7 +54,7 @@ public class Krug extends PovrsinskiOblik{
 
 
 	public void crtajSe(Graphics g) {
-		g.setColor(pronadjiBoju(getBoja()));
+		g.setColor(getBoja());
 		g.drawOval(centar.getX()-radius, centar.getY()-radius,
 				2*radius, 2*radius);
 

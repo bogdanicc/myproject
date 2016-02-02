@@ -3,6 +3,8 @@ package geometrija;
 import java.awt.Color;
 import java.awt.Graphics;
 
+
+
 public class Linija extends Oblik implements Comparable{
 	private Tacka tPocetna;
 	private Tacka tKrajnja;
@@ -17,7 +19,7 @@ public class Linija extends Oblik implements Comparable{
 		this.tKrajnja = tKrajnja;
 	}
 	
-	public Linija(Tacka tPocetna, Tacka tKrajnja, String boja){
+	public Linija(Tacka tPocetna, Tacka tKrajnja, Color boja){
 		super(boja);
 		this.tPocetna = tPocetna;
 		this.tKrajnja = tKrajnja;
@@ -48,7 +50,7 @@ public class Linija extends Oblik implements Comparable{
 	
 	
 	public void crtajSe(Graphics g) {
-		g.setColor(pronadjiBoju(getBoja()));
+		g.setColor(getBoja());
 		g.drawLine(tPocetna.getX(), tPocetna.getY(), 
 				tKrajnja.getX(), tKrajnja.getY());
 		if(isSelektovan())
@@ -96,6 +98,17 @@ public class Linija extends Oblik implements Comparable{
 	}
 	public void settKrajnja(Tacka tKrajnja) {
 		this.tKrajnja = tKrajnja;
+	}
+
+	@Override
+	public boolean sadrzi(int x, int y) {
+		// TODO Auto-generated method stub
+		Linija l1 = new Linija(tPocetna, new Tacka(x,y));
+		Linija l2 = new Linija(new Tacka(x,y), tKrajnja);
+		if ((l1.duzina()+l2.duzina()) <= this.duzina() + 0.5 && (l1.duzina()+l2.duzina()) >= this.duzina() - 0.5)
+			return true;
+		return false;
+		
 	}
 
 	
