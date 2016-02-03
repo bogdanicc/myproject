@@ -85,7 +85,10 @@ public class Crtez extends JPanel {
 					selectObject(e.getX(), e.getY());
 					DlgPomeri dlgp = new DlgPomeri();
 					dlgp.setVisible(true);
-					listaSelKon.get(0).pomeriZa(dlgp.getPomeriX(), dlgp.getPomeriY());
+					if (dlgp.isStanje())
+						listaSelKon.get(0).pomeriZa(dlgp.getPomeriX(), dlgp.getPomeriY());
+					else if (dlgp.getX() > 0 && dlgp.getY() > 0 && !(dlgp.isStanje()))
+						listaSelKon.get(0).pomeriNa(dlgp.getX(), dlgp.getY());
 					break;
 				}
 				case 7: {

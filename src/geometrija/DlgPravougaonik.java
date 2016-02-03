@@ -118,10 +118,10 @@ public class DlgPravougaonik extends JDialog {
 		getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblNewLabel = new JLabel("Stranica:");
-			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-			lblNewLabel.setBounds(10, 11, 72, 14);
-			contentPanel.add(lblNewLabel);
+			JLabel lblStranica = new JLabel("Stranica:");
+			lblStranica.setFont(new Font("Tahoma", Font.BOLD, 12));
+			lblStranica.setBounds(10, 11, 72, 14);
+			contentPanel.add(lblStranica);
 		}
 		{
 			JLabel lblVisina = new JLabel("Visina:");

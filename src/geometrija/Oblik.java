@@ -21,6 +21,8 @@ public abstract class Oblik {
 
 	public abstract void pomeriZa(int x, int y);
 
+	public abstract void pomeriNa(int x, int y);
+
 	public Color getBoja() {
 		return boja;
 	}

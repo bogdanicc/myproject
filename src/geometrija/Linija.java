@@ -62,6 +62,17 @@ public class Linija extends Oblik implements Comparable {
 			return false;
 	}
 
+	@Override
+	public boolean sadrzi(int x, int y) {
+		// TODO Auto-generated method stub
+		Linija l1 = new Linija(tPocetna, new Tacka(x, y));
+		Linija l2 = new Linija(new Tacka(x, y), tKrajnja);
+		if ((l1.duzina() + l2.duzina()) <= this.duzina() + 0.5 && (l1.duzina() + l2.duzina()) >= this.duzina() - 0.5)
+			return true;
+		return false;
+
+	}
+
 	public String toString() {
 		// (xp,yp)-->(xk,yk)
 		return tPocetna + "-->" + tKrajnja;
@@ -70,6 +81,11 @@ public class Linija extends Oblik implements Comparable {
 	public void pomeriZa(int x, int y) {
 		tPocetna.pomeriZa(x, y);
 		tKrajnja.pomeriZa(x, y);
+	}
+
+	public void pomeriNa(int x, int y) {
+		tPocetna.pomeriNa(x, y);
+		tKrajnja.pomeriNa(x, y);
 	}
 
 	public double duzina() {
@@ -90,17 +106,6 @@ public class Linija extends Oblik implements Comparable {
 
 	public void settKrajnja(Tacka tKrajnja) {
 		this.tKrajnja = tKrajnja;
-	}
-
-	@Override
-	public boolean sadrzi(int x, int y) {
-		// TODO Auto-generated method stub
-		Linija l1 = new Linija(tPocetna, new Tacka(x, y));
-		Linija l2 = new Linija(new Tacka(x, y), tKrajnja);
-		if ((l1.duzina() + l2.duzina()) <= this.duzina() + 0.5 && (l1.duzina() + l2.duzina()) >= this.duzina() - 0.5)
-			return true;
-		return false;
-
 	}
 
 }
