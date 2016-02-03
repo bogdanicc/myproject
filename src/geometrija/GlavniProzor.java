@@ -64,7 +64,7 @@ public class GlavniProzor extends JFrame {
 		JToggleButton tglTacka = new JToggleButton("Tacka");
 		tglTacka.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				if (SwingUtilities.isLeftMouseButton(e)) {
 					pnlCrtez.setDugme(1);
 				} else if (SwingUtilities.isRightMouseButton(e)) {
@@ -81,7 +81,7 @@ public class GlavniProzor extends JFrame {
 		JToggleButton tglLinija = new JToggleButton("Linija");
 		tglLinija.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				if (SwingUtilities.isLeftMouseButton(e)) {
 					pnlCrtez.setDugme(2);
 				} else if (SwingUtilities.isRightMouseButton(e)) {

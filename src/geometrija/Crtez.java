@@ -25,7 +25,7 @@ public class Crtez extends JPanel {
 		addMouseListener(new MouseAdapter() {
 
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				switch (dugme) {
 				case 1: {
 					Tacka t1 = new Tacka(e.getX(), e.getY(), boja);
