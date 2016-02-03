@@ -25,7 +25,7 @@ public class DlgLinija extends JDialog {
 	private JTextField textXTkrajnje;
 	private JTextField textYTkrajnje;
 	private Color boja;
-	private int XTpocetno,XTkrajnje,YTpocetno,YTkrajnje;
+	private int XTpocetno, XTkrajnje, YTpocetno, YTkrajnje;
 
 	/**
 	 * Launch the application.
@@ -105,12 +105,11 @@ public class DlgLinija extends JDialog {
 			contentPanel.add(textYTkrajnje);
 			textYTkrajnje.setColumns(10);
 		}
-		
+
 		JButton btnIzaberi = new JButton("Izaberi");
 		btnIzaberi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boja=JColorChooser.showDialog(null,
-			               "Izaberite boju linije", Color.white);
+				boja = JColorChooser.showDialog(null, "Izaberite boju linije", Color.white);
 			}
 		});
 		btnIzaberi.setBounds(126, 107, 89, 23);
@@ -125,26 +124,26 @@ public class DlgLinija extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						try {
-							XTpocetno=Integer.parseInt(textXTpocetno.getText());
-							YTpocetno=Integer.parseInt(textYTpocetno.getText());
-							XTkrajnje=Integer.parseInt(textXTkrajnje.getText());
-							YTkrajnje=Integer.parseInt(textYTkrajnje.getText());
-							if(XTpocetno>=0 && YTpocetno>=0 && YTpocetno>=0 && YTkrajnje>=0){
+							XTpocetno = Integer.parseInt(textXTpocetno.getText());
+							YTpocetno = Integer.parseInt(textYTpocetno.getText());
+							XTkrajnje = Integer.parseInt(textXTkrajnje.getText());
+							YTkrajnje = Integer.parseInt(textYTkrajnje.getText());
+							if (XTpocetno >= 0 && YTpocetno >= 0 && YTpocetno >= 0 && YTkrajnje >= 0) {
 								dispose();
-							}
-							else{
-								JOptionPane.showMessageDialog(null, "Brojevi moraju biti pozitivni!", "Error", JOptionPane.ERROR_MESSAGE);
+							} else {
+								JOptionPane.showMessageDialog(null, "Brojevi moraju biti pozitivni!", "Error",
+										JOptionPane.ERROR_MESSAGE);
 								textXTkrajnje.setText("");
 								textXTpocetno.setText("");
 								textYTkrajnje.setText("");
 								textYTpocetno.setText("");
 								textXTpocetno.requestFocus();
 							}
-							
-							
+
 						} catch (NumberFormatException e1) {
 							// TODO Auto-generated catch block
-							JOptionPane.showMessageDialog(null, "Niste uneli brojeve!", "Error", JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null, "Niste uneli brojeve!", "Error",
+									JOptionPane.ERROR_MESSAGE);
 							textXTkrajnje.setText("");
 							textXTpocetno.setText("");
 							textYTkrajnje.setText("");

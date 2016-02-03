@@ -24,7 +24,7 @@ public class DlgKrug extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textPoluprecnik;
 	private int poluprecnik;
-	private Color okvir,unutrasnjost;
+	private Color okvir, unutrasnjost;
 
 	/**
 	 * Launch the application.
@@ -70,25 +70,24 @@ public class DlgKrug extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			{
 				JButton okButton = new JButton("OK");
-				
+
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						try {
 							poluprecnik = Integer.parseInt(textPoluprecnik.getText());
-							if(poluprecnik > 0)
-							{
+							if (poluprecnik > 0) {
 								dispose();
-							}
-							else
-							{							
-								JOptionPane.showMessageDialog(null, "Broj mora biti pozitivan", "Error", JOptionPane.ERROR_MESSAGE);
+							} else {
+								JOptionPane.showMessageDialog(null, "Broj mora biti pozitivan", "Error",
+										JOptionPane.ERROR_MESSAGE);
 								textPoluprecnik.setText("");
 								textPoluprecnik.requestFocus();
 							}
 
 						} catch (NumberFormatException e1) {
 							// TODO Auto-generated catch block
-							JOptionPane.showMessageDialog(null, "Niste uneli brojeve!", "Error", JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null, "Niste uneli brojeve!", "Error",
+									JOptionPane.ERROR_MESSAGE);
 							textPoluprecnik.setText("");
 							textPoluprecnik.requestFocus();
 						}
@@ -125,8 +124,7 @@ public class DlgKrug extends JDialog {
 			JButton btnIzaberi1 = new JButton("Izaberi");
 			btnIzaberi1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-				 okvir = JColorChooser.showDialog(null,
-				               "Izaberite boju okvira", Color.white);
+					okvir = JColorChooser.showDialog(null, "Izaberite boju okvira", Color.white);
 				}
 			});
 			btnIzaberi1.setBounds(151, 44, 89, 23);
@@ -136,8 +134,7 @@ public class DlgKrug extends JDialog {
 			JButton btnIzaberi2 = new JButton("Izaberi");
 			btnIzaberi2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					unutrasnjost = JColorChooser.showDialog(null,
-				               "Izaberite boju unutrasnjosti", Color.white);
+					unutrasnjost = JColorChooser.showDialog(null, "Izaberite boju unutrasnjosti", Color.white);
 				}
 			});
 			btnIzaberi2.setBounds(151, 71, 89, 23);

@@ -22,10 +22,6 @@ public class GlavniProzor extends JFrame {
 	private JPanel contentPane;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
-	
-
-	
-
 	/**
 	 * Launch the application.
 	 */
@@ -52,17 +48,17 @@ public class GlavniProzor extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JPanel pnlZaglavlje = new JPanel();
 		pnlZaglavlje.setBackground(Color.LIGHT_GRAY);
 		pnlZaglavlje.setBounds(0, 0, 884, 45);
 		contentPane.add(pnlZaglavlje);
 		pnlZaglavlje.setLayout(null);
-		
+
 		Crtez pnlCrtez = new Crtez();
 		pnlCrtez.setBounds(0, 47, 884, 515);
 		contentPane.add(pnlCrtez);
-		
+
 		JToggleButton tglTacka = new JToggleButton("Tacka");
 		tglTacka.addMouseListener(new MouseAdapter() {
 			@Override
@@ -72,12 +68,12 @@ public class GlavniProzor extends JFrame {
 		buttonGroup.add(tglTacka);
 		tglTacka.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pnlCrtez.setDugme(1);			        
+				pnlCrtez.setDugme(1);
 			}
 		});
 		tglTacka.setBounds(10, 11, 73, 23);
 		pnlZaglavlje.add(tglTacka);
-		
+
 		JToggleButton tglLinija = new JToggleButton("Linija");
 		tglLinija.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -87,7 +83,7 @@ public class GlavniProzor extends JFrame {
 		buttonGroup.add(tglLinija);
 		tglLinija.setBounds(93, 11, 72, 23);
 		pnlZaglavlje.add(tglLinija);
-		
+
 		JToggleButton tglKrug = new JToggleButton("Krug");
 		tglKrug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -97,7 +93,7 @@ public class GlavniProzor extends JFrame {
 		buttonGroup.add(tglKrug);
 		tglKrug.setBounds(175, 11, 81, 23);
 		pnlZaglavlje.add(tglKrug);
-		
+
 		JToggleButton tglKvadrat = new JToggleButton("Kvadrat");
 		tglKvadrat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -107,7 +103,7 @@ public class GlavniProzor extends JFrame {
 		buttonGroup.add(tglKvadrat);
 		tglKvadrat.setBounds(266, 11, 81, 23);
 		pnlZaglavlje.add(tglKvadrat);
-		
+
 		JToggleButton tglPravougaonik = new JToggleButton("Pravougaonik");
 		tglPravougaonik.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -117,18 +113,18 @@ public class GlavniProzor extends JFrame {
 		buttonGroup.add(tglPravougaonik);
 		tglPravougaonik.setBounds(357, 11, 113, 23);
 		pnlZaglavlje.add(tglPravougaonik);
-		
+
 		JToggleButton tglBoja = new JToggleButton("Boja");
 		tglBoja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-	          	pnlCrtez.setBoja(JColorChooser.showDialog(null,"Izaberite boju", Color.white));	
+				pnlCrtez.setBoja(JColorChooser.showDialog(null, "Izaberite boju", Color.white));
 
 			}
 		});
 		buttonGroup.add(tglBoja);
 		tglBoja.setBounds(480, 11, 72, 23);
 		pnlZaglavlje.add(tglBoja);
-		
+
 		JToggleButton tglPomeri = new JToggleButton("Pomeri");
 		buttonGroup.add(tglPomeri);
 		tglPomeri.addActionListener(new ActionListener() {
@@ -138,7 +134,7 @@ public class GlavniProzor extends JFrame {
 		});
 		tglPomeri.setBounds(562, 11, 88, 23);
 		pnlZaglavlje.add(tglPomeri);
-		
+
 		JToggleButton tglModifikuj = new JToggleButton("Modifikuj");
 		tglModifikuj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -148,7 +144,7 @@ public class GlavniProzor extends JFrame {
 		buttonGroup.add(tglModifikuj);
 		tglModifikuj.setBounds(660, 11, 99, 23);
 		pnlZaglavlje.add(tglModifikuj);
-		
+
 		JToggleButton tglObrisi = new JToggleButton("Obrisi");
 		tglObrisi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -158,11 +154,6 @@ public class GlavniProzor extends JFrame {
 		buttonGroup.add(tglObrisi);
 		tglObrisi.setBounds(769, 11, 99, 23);
 		pnlZaglavlje.add(tglObrisi);
-		
-		
-		
-		
-		
-		
+
 	}
 }

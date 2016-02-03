@@ -22,8 +22,8 @@ public class DlgPravougaonik extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textStranica;
 	private JTextField textVisina;
-	private int stranica,visina;
-	private Color okvir,unutrasnjost;
+	private int stranica, visina;
+	private Color okvir, unutrasnjost;
 
 	/**
 	 * Launch the application.
@@ -107,8 +107,7 @@ public class DlgPravougaonik extends JDialog {
 			JButton btnIzaberi2 = new JButton("Izaberi");
 			btnIzaberi2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					unutrasnjost = JColorChooser.showDialog(null,
-				               "Izaberite boju unutrasnjosti", Color.white);
+					unutrasnjost = JColorChooser.showDialog(null, "Izaberite boju unutrasnjosti", Color.white);
 				}
 			});
 			btnIzaberi2.setBounds(146, 100, 89, 23);
@@ -152,8 +151,7 @@ public class DlgPravougaonik extends JDialog {
 			JButton btnIzaberi1 = new JButton("Izaberi");
 			btnIzaberi1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					 okvir = JColorChooser.showDialog(null,
-				               "Izaberite boju okvira", Color.white);
+					okvir = JColorChooser.showDialog(null, "Izaberite boju okvira", Color.white);
 				}
 			});
 			btnIzaberi1.setBounds(147, 71, 89, 23);

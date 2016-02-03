@@ -57,7 +57,7 @@ public class DlgObrisi extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						odg=true;
+						odg = true;
 						dispose();
 					}
 				});
@@ -69,7 +69,7 @@ public class DlgObrisi extends JDialog {
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						odg=false;
+						odg = false;
 						dispose();
 					}
 				});

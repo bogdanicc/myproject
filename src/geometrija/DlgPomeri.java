@@ -20,7 +20,7 @@ public class DlgPomeri extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textPomeriPoX;
 	private JTextField textPomeriPoY;
-	private int pomeriX,pomeriY;
+	private int pomeriX, pomeriY;
 
 	/**
 	 * Launch the application.
@@ -47,22 +47,22 @@ public class DlgPomeri extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
-		
+
 		JLabel lblPomeriPoX = new JLabel("Pomeri po X osi:");
 		lblPomeriPoX.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblPomeriPoX.setBounds(10, 31, 99, 14);
 		contentPanel.add(lblPomeriPoX);
-		
+
 		JLabel lblPomeriPoY = new JLabel("Pomeri po Y osi:");
 		lblPomeriPoY.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblPomeriPoY.setBounds(10, 66, 99, 14);
 		contentPanel.add(lblPomeriPoY);
-		
+
 		textPomeriPoX = new JTextField();
 		textPomeriPoX.setBounds(144, 29, 86, 20);
 		contentPanel.add(textPomeriPoX);
 		textPomeriPoX.setColumns(10);
-		
+
 		textPomeriPoY = new JTextField();
 		textPomeriPoY.setBounds(144, 64, 86, 20);
 		contentPanel.add(textPomeriPoY);
@@ -77,17 +77,18 @@ public class DlgPomeri extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						try {
-							pomeriX=Integer.parseInt(textPomeriPoX.getText());
-							pomeriY=Integer.parseInt(textPomeriPoY.getText());
+							pomeriX = Integer.parseInt(textPomeriPoX.getText());
+							pomeriY = Integer.parseInt(textPomeriPoY.getText());
 							dispose();
 						} catch (NumberFormatException e1) {
 							// TODO Auto-generated catch block
-							JOptionPane.showMessageDialog(null, "Niste uneli brojeve!", "Error", JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null, "Niste uneli brojeve!", "Error",
+									JOptionPane.ERROR_MESSAGE);
 							textPomeriPoX.setText("");
 							textPomeriPoY.setText("");
 							textPomeriPoX.requestFocus();
 						}
-						
+
 					}
 				});
 				okButton.setActionCommand("OK");

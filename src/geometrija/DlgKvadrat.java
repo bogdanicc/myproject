@@ -1,6 +1,5 @@
 package geometrija;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 
@@ -15,7 +14,6 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class DlgKvadrat extends JDialog {
@@ -23,7 +21,7 @@ public class DlgKvadrat extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textStranica;
 	private int stranica;
-	private Color okvir,unutrasnjost;
+	private Color okvir, unutrasnjost;
 
 	/**
 	 * Launch the application.
@@ -31,7 +29,7 @@ public class DlgKvadrat extends JDialog {
 	public static void main(String[] args) {
 		try {
 			DlgKvadrat dialog = new DlgKvadrat();
-			dialog.setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -73,20 +71,20 @@ public class DlgKvadrat extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 						try {
 							stranica = Integer.parseInt(textStranica.getText());
-							if(stranica < 0){
-								JOptionPane.showMessageDialog(null, "Ne sme biti negativan broj!", 
-										"Error", JOptionPane.ERROR_MESSAGE);
-								
+							if (stranica < 0) {
+								JOptionPane.showMessageDialog(null, "Ne sme biti negativan broj!", "Error",
+										JOptionPane.ERROR_MESSAGE);
+
 								textStranica.setText("");
 								textStranica.requestFocus();
-							}
-							else{
+							} else {
 								dispose();
 							}
 						} catch (NumberFormatException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
-							JOptionPane.showMessageDialog(null, "Niste uneli brojeve!", "Error", JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null, "Niste uneli brojeve!", "Error",
+									JOptionPane.ERROR_MESSAGE);
 							textStranica.setText("");
 							textStranica.requestFocus();
 
@@ -125,8 +123,7 @@ public class DlgKvadrat extends JDialog {
 			JButton btnIzaberi1 = new JButton("Izaberi");
 			btnIzaberi1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					 okvir = JColorChooser.showDialog(null,
-				               "Izaberite boju okvira", Color.white);
+					okvir = JColorChooser.showDialog(null, "Izaberite boju okvira", Color.white);
 				}
 			});
 			btnIzaberi1.setBounds(142, 34, 89, 23);
@@ -136,17 +133,13 @@ public class DlgKvadrat extends JDialog {
 			JButton btnIzaberi2 = new JButton("Izaberi");
 			btnIzaberi2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					unutrasnjost = JColorChooser.showDialog(null,
-				               "Izaberite boju unutrasnjosti", Color.white);
+					unutrasnjost = JColorChooser.showDialog(null, "Izaberite boju unutrasnjosti", Color.white);
 				}
 			});
 			btnIzaberi2.setBounds(142, 58, 89, 23);
 			contentPanel.add(btnIzaberi2);
 		}
 	}
-	
-
-	
 
 	public int getStranica() {
 		return stranica;
