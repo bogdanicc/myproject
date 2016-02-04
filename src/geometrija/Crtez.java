@@ -65,7 +65,6 @@ public class Crtez extends JPanel {
 						Kvadrat kv1 = new Kvadrat(new Tacka(X, Y), dlgkv.getStranica(), dlgkv.getOkvir());
 						kv1.setBojaUnutrasnjosti(dlgkv.getUnutrasnjost());
 						lista.add(kv1);
-						dlgkv.setVisible(false);
 					}
 					break;
 
@@ -75,7 +74,7 @@ public class Crtez extends JPanel {
 					DlgPravougaonik dlgp = new DlgPravougaonik();
 					dlgp.setVisible(true);
 					if (dlgp.getStranica() > 0 && dlgp.getVisina() > 0) {
-						Pravougaonik p1 = new Pravougaonik(t1, dlgp.getVisina(), dlgp.getStranica(), dlgp.getOkvir());
+						Pravougaonik p1 = new Pravougaonik(t1, dlgp.getStranica(), dlgp.getVisina(), dlgp.getOkvir());
 						p1.setBojaUnutrasnjosti(dlgp.getUnutrasnjost());
 						lista.add(p1);
 					}
@@ -107,8 +106,8 @@ public class Crtez extends JPanel {
 						if (dlgp.getStranica() > 0 && dlgp.getVisina() > 0) {
 							((Pravougaonik) listaSelKon.get(0)).setBojaUnutrasnjosti(dlgp.getUnutrasnjost());
 							((Pravougaonik) listaSelKon.get(0)).setBoja(dlgp.getOkvir());
-							((Pravougaonik) listaSelKon.get(0)).setStranica(dlgp.getVisina());
-							((Pravougaonik) listaSelKon.get(0)).setSirina(dlgp.getStranica());
+							((Pravougaonik) listaSelKon.get(0)).setStranica(dlgp.getStranica());
+							((Pravougaonik) listaSelKon.get(0)).setSirina(dlgp.getVisina());
 						}
 					} else if (listaSelKon.get(0) instanceof Kvadrat) {
 						DlgKvadrat dlgkv = new DlgKvadrat();
@@ -162,32 +161,14 @@ public class Crtez extends JPanel {
 	}
 
 	public void selectObject(int x, int y) {
-		Iterator it = lista.iterator();
+		Iterator<Oblik> it = lista.iterator();
 		listaSelKon.clear();
 		listaSel.clear();
 		while (it.hasNext()) {
-			Oblik o = (Oblik) it.next();
+			Oblik o = it.next();
 			o.setSelektovan(false);
-			if (o instanceof Tacka) {
-				if (o.sadrzi(x, y)) {
-					listaSel.add(o);
-				}
-			} else if (o instanceof Linija) {
-				if (o.sadrzi(x, y)) {
-					listaSel.add(o);
-				}
-			} else if (o instanceof Krug) {
-				if (o.sadrzi(x, y)) {
-					listaSel.add(o);
-				}
-			} else if (o instanceof Kvadrat) {
-				if (o.sadrzi(x, y)) {
-					listaSel.add(o);
-				}
-			} else if (o instanceof Pravougaonik) {
-				if (o.sadrzi(x, y)) {
-					listaSel.add(o);
-				}
+			if (o.sadrzi(x, y)) {
+				listaSel.add(o);
 			}
 		}
 		if (listaSel.size() > 1) {
@@ -202,10 +183,10 @@ public class Crtez extends JPanel {
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 
-		Iterator it = lista.iterator();
+		Iterator<Oblik> it = lista.iterator();
 
 		while (it.hasNext()) {
-			Oblik o = (Oblik) it.next();
+			Oblik o = it.next();
 			if (o instanceof Krug) {
 				((Krug) o).popuni(g);
 			}
