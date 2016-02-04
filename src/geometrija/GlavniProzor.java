@@ -44,6 +44,8 @@ public class GlavniProzor extends JFrame {
 	 * Create the frame.
 	 */
 	public GlavniProzor() {
+		setResizable(false);
+		setTitle("Paint");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 600);
 		contentPane = new JPanel();
@@ -53,12 +55,12 @@ public class GlavniProzor extends JFrame {
 
 		JPanel pnlZaglavlje = new JPanel();
 		pnlZaglavlje.setBackground(Color.LIGHT_GRAY);
-		pnlZaglavlje.setBounds(0, 0, 884, 45);
+		pnlZaglavlje.setBounds(0, 0, 894, 45);
 		contentPane.add(pnlZaglavlje);
 		pnlZaglavlje.setLayout(null);
 
 		Crtez pnlCrtez = new Crtez();
-		pnlCrtez.setBounds(0, 47, 884, 515);
+		pnlCrtez.setBounds(0, 47, 894, 515);
 		contentPane.add(pnlCrtez);
 
 		JToggleButton tglTacka = new JToggleButton("Tacka");
